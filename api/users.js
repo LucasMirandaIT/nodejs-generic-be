@@ -9,15 +9,14 @@ const User = db.Mongoose.model("users", UserSchema, "users");
 
 router.post("/login", async (req, res) => {
   const users = await User.find({ email: req.body.username })
-    .then((value) => {
+    .then(async(value) => {
       const { password, _id, __v, ...user } = value[0].toObject();
-      if (bcrypt.compare(req.body.password, value[0].password)) {
-        return res.status(200).send(user);
-      }
-
-      return res.status(401).send({ message: "Senha inválida" });
-    })
-    .catch((err) => res.status(500).send({ error: err }));
+      if(await bcrypt.compare(req.body.password, value[0].password)) {
+          res.status(200).send(user)
+        } else {
+          res.status(401).send({ message: "Senha inválida" })
+        }
+    }).catch((err) => res.status(500).send({ error: err }));
 });
 router.post("/register", async (req, res) => {
   const salt = await bcrypt.genSalt(10);
