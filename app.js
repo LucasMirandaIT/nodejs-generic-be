@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3200;
 
 function allowOrigin(req, res, next) {
   // Website you wish to allow to connect
-  res.setHeader("Access-Control-Allow-Origin", process.env.CORSAllow);
+  res.setHeader("Access-Control-Allow-Origin", process.env.CORSAllow || "*");
 
   // Request methods you wish to allow
   res.setHeader(
