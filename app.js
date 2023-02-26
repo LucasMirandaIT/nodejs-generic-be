@@ -32,6 +32,9 @@ require('./schemas/User');
 
 app.use("/api/users", usersRoutes);
 
+app.get("/", (req, res) => {
+  res.send("My Express API on Vercel");
+});
 
 app.listen(port, () => {
   console.log(`Server Running on port ${port}`);
