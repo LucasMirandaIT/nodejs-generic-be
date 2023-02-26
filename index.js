@@ -23,6 +23,7 @@ function allowOrigin(req, res, next) {
   next();
 }
 const usersRoutes = require("./api/users");
+const experiencesRoutes = require("./api/experiences");
 
 app.use(allowOrigin);
 app.use(express.json());
@@ -31,6 +32,7 @@ app.use(express.static("./build"));
 require('./schemas/User');
 
 app.use("/api/users", usersRoutes);
+app.use("/api/experiences", experiencesRoutes);
 
 app.get("/", (req, res) => {
   res.send("My Express API on Vercel");
