@@ -1,14 +1,14 @@
 {
   "name": "nodejs-generic-be",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.17.3",
     "mongoose": "^6.4.4"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "engines": {
     "node": "16.x"
