@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const port = process.env.PORT || 3200;
+const port = process.env.PORT || 8080;
 
 function allowOrigin(req, res, next) {
   // Website you wish to allow to connect
