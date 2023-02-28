@@ -7,7 +7,7 @@ const ExperienceSchema = require("../schemas/Experience");
 const Experience = db.Mongoose.model("experiences", ExperienceSchema, "experiences");
 
 router.get("", async (req, res) => {
-  const experiences = await Experience.find()
+  const experiences = await Experience.find().sort({startDate: -1})
     .then(async (value) => {
       res.status(200).send(value);
     })
